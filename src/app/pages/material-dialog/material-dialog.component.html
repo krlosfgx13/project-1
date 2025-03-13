@@ -1,0 +1,10 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" routerLink="">Home</li>
+        <li class="breadcrumb-item active" routerLink="/material">Material</li>
+        <li class="breadcrumb-item active" routerLink="/material/dialog">Tabs</li>
+    </ol>
+</nav>
+<h3>Dialog</h3>
+<button mat-raised-button color="primary" (click)="open('0ms', '0ms')">Option 1</button>
+<button mat-raised-button color="danger" (click)="open('3000ms', '1500ms')">Option 2</button>

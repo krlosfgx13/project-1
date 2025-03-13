@@ -1,0 +1,23 @@
+<p>data-binding works!</p>
+<p>
+    Button example
+    <br><br>    
+    <button [disabled]="isDisabled" (click)="change()">Click the button</button>
+</p>
+
+<!-- Interpolation -->
+<div style="background-color: {{color}};"> 
+    Hello
+</div>
+<br>
+<div [style]=" 'background-color: '+color+';' ">Hello</div>
+<hr>
+<p>
+    {{text}}
+</p>
+<p [innerHTML]="text"></p>
+<hr>
+<div>
+    <!-- <img src="/assets/images/eagle.png"> -->
+     <img [src]=" '/assets/images/' + img " [width]="width" [height]="height">
+</div>

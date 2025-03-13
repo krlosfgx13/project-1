@@ -1,0 +1,11 @@
+<h3>Communication between components</h3>
+<!--Values are passed from communication to communication2.-->
+<app-communication2 title="Hello" subtitle="World"></app-communication2>
+
+<!--Reading Values using data binding from variables defined in parent component.-->
+<app-communication2 [title]="text1" [subtitle]="text2" (childrenValue)="updateChildren($event)"></app-communication2>
+
+<p>
+    children: {{children}}
+</p>
+

@@ -1,0 +1,28 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" routerLink="">Home</li>
+        <li class="breadcrumb-item active" routerLink="/material">Material</li>
+        <li class="breadcrumb-item active" routerLink="/material/input">Input</li>
+    </ol>
+</nav>
+<h3>Input</h3>
+<div class="myContainer">
+    <mat-form-field>
+        <mat-label>Add a number</mat-label>
+        <input matInput type="number" [(ngModel)]="number1" placeholder="Enter a value">
+      </mat-form-field>
+
+    <mat-label>Add another number</mat-label>
+    <mat-form-field>
+        <input matInput type="number" [(ngModel)]="number2"/>
+    </mat-form-field>
+
+    <mat-slide-toggle [(ngModel)]="isSumEnabled">Add</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isSubtractEnabled">Substract</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isMultiplyEnabled">Multiply</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isDivideEnabled">Divide</mat-slide-toggle>
+
+    <button mat-raised-button color="primary" (click)="calculate()">Calculate</button>
+    <hr>
+    <p>{{result}}</p>
+</div>

@@ -1,0 +1,78 @@
+<ul>
+    <li> name: {{name}} </li>
+    <li> email: {{email}} </li>
+    <li> age: {{age}} </li>
+    <li> date: {{date}} </li>
+    <li> HTML: <span [innerHTML]="html"></span> </li>
+    <li>countries: {{countries}}</li>
+    <li>countries and domains: {{countriesAndDomain}}</li>
+</ul>
+<hr>
+<h4>Conditionals</h4>
+<!-- Directives -->
+<p *ngIf="age>=18; else ageElse">Is adult</p>
+<ng-template #ageElse>
+    <p>Is not adult, still too young</p>
+</ng-template>
+<hr>
+<h4>Ternary operator</h4>
+<p>{{(age >= 18 ? 'adult' : 'not adult')}}</p>
+<hr>
+<h4>Switch Case</h4>
+<div [ngSwitch]="num">
+    <p *ngSwitchCase="12">Is 12</p>
+    <p *ngSwitchCase="13">Is 13</p>
+    <p *ngSwitchCase="14">Is 14</p>
+    <p *ngSwitchCase="15">Is 15</p>
+    <p *ngSwitchDefault>None of them</p>
+</div>
+<hr>
+<!-- conditionals out of HTML -->
+<h4>ng-container</h4> 
+<ng-container *ngIf="age>=18">
+    Condition met
+</ng-container>
+<hr>
+<h4>ngFor simple array</h4>
+<ul>
+    <li *ngFor="let item of countries; let i = index">
+        {{i}} - {{item}}
+    </li>
+</ul>
+<h4>ngFor objects array</h4>
+<ul>
+    <li *ngFor="let country of countriesAndDomain; let i = index; first as isFirst; last as isLast">
+        {{i+1}} - {{country.domain}} ({{country.name}}) 
+        <span *ngIf="isFirst"> This is the first index </span>
+        <span *ngIf="isLast"> This is the last index </span>
+    </li>
+</ul>
+<hr>
+<h4>ng-templates</h4>
+<ul>
+    <ng-template ngFor let-country [ngForOf]="countriesAndDomain" let-i="index">
+        <li> {{i+1}} - {{country.domain}} ({{country.name}})  </li>
+    </ng-template>
+</ul>
+<hr>
+<h4>Odd and Even</h4>
+<div *ngFor="let country of countriesAndDomain; let i = index; let odd = odd; let even = even;"
+[ngClass]="{blue:even, green:odd}">
+    <p>
+        {{i+1}} - {{country.name}} ({{country.domain}})
+        <span *ngIf="odd">Is odd</span>
+        <span *ngIf="even">Is even</span>
+    </p>
+</div>
+<hr>
+<h4>Pipes</h4>
+<p> {{text | lowercase }} </p>
+<p> {{text | uppercase }} </p>
+<p> {{text | slice:0:100 }} </p>
+<p> {{amount | currency }} </p>
+<p> {{amount | currency:'EUR':'E' }} </p>
+<p> {{amount | currency:'USD':'$' }} </p>
+<p> {{date | date }} </p>
+<p> {{date | date: 'dd/MM/yyyy' }} </p>
+<p> {{date | formatDate}} </p>
+<p> {{amount | formatNumber:'Q' }} </p>
