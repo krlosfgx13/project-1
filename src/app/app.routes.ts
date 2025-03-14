@@ -22,6 +22,7 @@ import { Sessionstorage2Component } from './pages/sessionstorage2/sessionstorage
 import { CookieComponent } from './pages/cookie/cookie.component';
 import { Cookie2Component } from './pages/cookie2/cookie2.component';
 import { ApiRestComponent } from './pages/api-rest/api-rest.component';
+import { RestApiCategoriesComponent } from './pages/rest-api-categories/rest-api-categories.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -45,6 +46,7 @@ export const routes: Routes = [
     { path: "sessionstorage2", component: Sessionstorage2Component },
     { path: "cookie", component: CookieComponent },
     { path: "cookie2", component: Cookie2Component },
-    { path: "api-rest", component: ApiRestComponent },
+    { path: "rest-api", component: ApiRestComponent },
+    { path: "api/categorias", component: RestApiCategoriesComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];
