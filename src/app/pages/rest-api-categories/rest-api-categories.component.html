@@ -1,1 +1,24 @@
 <h1>Categories</h1>
+<p>
+    <a routerLink="/api/categorias/add" class="btn btn-success"> Create </a>
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <td> {{item.id}} </td>
+                <td> {{item.nombre}} </td>
+                <td> {{item.slug}} </td>
+            </tr>
+        </tbody>
+
+
+    </table>
+</div>
