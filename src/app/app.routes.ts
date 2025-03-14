@@ -9,6 +9,7 @@ import { MaterialButtonsComponent } from './pages/material-buttons/material-butt
 import { MaterialInputComponent } from './pages/material-input/material-input.component';
 import { MaterialTabsComponent } from './pages/material-tabs/material-tabs.component';
 import { MaterialDialogComponent } from './pages/material-dialog/material-dialog.component';
+import { MaterialExpansionComponent } from './pages/material-expansion/material-expansion.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
     { path: "material/input", component: MaterialInputComponent },
     { path: "material/tabs", component: MaterialTabsComponent },
     { path: "material/dialog", component: MaterialDialogComponent },
+    { path: "material/expansion", component: MaterialExpansionComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];
