@@ -16,6 +16,7 @@ import { ValidatorDirective } from './validations/validator.directive';
 import { MaterialButtonsComponent } from './pages/material-buttons/material-buttons.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,8 @@ import {MatIconModule} from '@angular/material/icon';
     ValidatorDirective,
     MaterialButtonsComponent,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

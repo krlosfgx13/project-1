@@ -10,6 +10,8 @@ import { MaterialInputComponent } from './pages/material-input/material-input.co
 import { MaterialTabsComponent } from './pages/material-tabs/material-tabs.component';
 import { MaterialDialogComponent } from './pages/material-dialog/material-dialog.component';
 import { MaterialExpansionComponent } from './pages/material-expansion/material-expansion.component';
+import { MaterialCardComponent } from './pages/material-card/material-card.component';
+import { ModalComponent } from './pages/modal/modal.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -21,6 +23,8 @@ export const routes: Routes = [
     { path: "material/input", component: MaterialInputComponent },
     { path: "material/tabs", component: MaterialTabsComponent },
     { path: "material/dialog", component: MaterialDialogComponent },
+    { path: "material/card", component: MaterialCardComponent },
     { path: "material/expansion", component: MaterialExpansionComponent },
+    { path: "modal", component: ModalComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];

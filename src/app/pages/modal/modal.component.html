@@ -1,0 +1,92 @@
+<h1>Modal Window</h1>
+
+<p>
+    <button class="btn btn-danger" (click)="openModal()">Open Modal</button>
+</p>
+
+<ng-template #myModalConf let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal Window</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- <p>Modal body text goes here.</p> -->
+        <!--Form-->
+        <div class="row">
+            <form name="form" id="form" (submit)="send()" #form="ngForm">
+
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="user.name" #name="ngModel"
+                        required="true">
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors">
+                            The field is mandatory.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="text" name="email" class="form-control" [(ngModel)]="user.email" #email="ngModel"
+                        required="true" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors">
+                            The field is mandatory.
+                        </div>
+                        <div *ngIf="!email.valid && email.touched">
+                            Email address is not valid
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Phone number: </label>
+                    <input type="text" name="phoneNumber" class="form-control" [(ngModel)]="user.phoneNumber"
+                        #phoneNumber="ngModel" required="true">
+                    <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="phoneNumber.errors">
+                            The field is mandatory.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Address </label>
+                    <input type="text" name="address" class="form-control" [(ngModel)]="user.address" #address="ngModel"
+                        required="true">
+                    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                        <div *ngIf="address.errors">
+                            The field is mandatory.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country </label>
+                    <select name="country" class="form-control" [(ngModel)]="user.country">
+                        <option *ngFor="let item of countries" value="{{item}}"> {{item}} </option>
+                    </select>
+                </div>
+                <hr>
+                
+                <!--[disabled] is a databinding-->
+
+                <div class="modal-footer">
+                    <input type="submit" value="Send" class="btn btn-success" [disabled]="!form.form.valid">
+                    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Exit</button>
+                </div>
+
+            </form>
+            <br>
+        </div>
+        <!--End form-->
+    </div>
+
+
+
+
+</ng-template>
