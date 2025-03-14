@@ -14,6 +14,7 @@ import { MaterialCardComponent } from './pages/material-card/material-card.compo
 import { ModalComponent } from './pages/modal/modal.component';
 import { MomentComponent } from './pages/moment/moment.component';
 import { ChartsComponent } from './pages/charts/charts.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -30,5 +31,6 @@ export const routes: Routes = [
     { path: "modal", component: ModalComponent },
     { path: "moment", component: MomentComponent },
     { path: "charts", component: ChartsComponent },
+    { path: "services", component: ServicesComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];
