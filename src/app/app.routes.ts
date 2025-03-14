@@ -12,6 +12,7 @@ import { MaterialDialogComponent } from './pages/material-dialog/material-dialog
 import { MaterialExpansionComponent } from './pages/material-expansion/material-expansion.component';
 import { MaterialCardComponent } from './pages/material-card/material-card.component';
 import { ModalComponent } from './pages/modal/modal.component';
+import { MomentComponent } from './pages/moment/moment.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -26,5 +27,6 @@ export const routes: Routes = [
     { path: "material/card", component: MaterialCardComponent },
     { path: "material/expansion", component: MaterialExpansionComponent },
     { path: "modal", component: ModalComponent },
+    { path: "moment", component: MomentComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];
