@@ -13,6 +13,7 @@ import { MaterialExpansionComponent } from './pages/material-expansion/material-
 import { MaterialCardComponent } from './pages/material-card/material-card.component';
 import { ModalComponent } from './pages/modal/modal.component';
 import { MomentComponent } from './pages/moment/moment.component';
+import { ChartsComponent } from './pages/charts/charts.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -28,5 +29,6 @@ export const routes: Routes = [
     { path: "material/expansion", component: MaterialExpansionComponent },
     { path: "modal", component: ModalComponent },
     { path: "moment", component: MomentComponent },
+    { path: "charts", component: ChartsComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];

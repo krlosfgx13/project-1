@@ -1,0 +1,55 @@
+ANGULAR:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+npm install -g @angular/cli
+npm uninstall g angular/cli
+
+Angular Features:
+- Routing (w and wo lazy load. Internally, it searchs for component content and loads contect efficiently)
+
+-Components: handling (base of SPAS. Everything should be a component, i.e, different sections of a page should be a component, 5 different pages are a diff component. Each component are linked to a route).
+
+- Services: used to encapsulate functions to be used generically in any component. Compared to helpers in BE.
+
+- Pipes: functionalities more related to algorithms to solve some specific task. i.e. give format to values, i.e. bank account, DPI, etc, format dates, etc. Tranform strings, currency amounts, dates, and other dta for display. Pipes are simple functions to use in template expressions to accept an input value and return a transformed value.
+
+- Directives: elements that allow to address common functionalities. i.e. conditionals, loops, indexes, data format, etc.
+
+- Deployment: Angular projects can be deployment in any web server.
+
+ngModel is used to bind values from html to ts fields. The ng-model directive binds an HTML form element to a variable in the scope
+
+ngBootstrap is an alternative to angular material. ngBootstrap has bootstrap features but component-oriented.
+
+use CommonModule to be able to use Directives such as *ngFor, *ngIf in .component.html files.
+
+what is a service? Is a helper that allow us to encasulate functionalities.
+
+ng new project-name
+ng serve (compile locally, just for tests) / ng serve --host 192.168.1.13 --port 8080
+ng generate component example2/ ng g c example2
+ng g c examples/example3
+ng g p utils/formatDate (generate pipe)
+ng generate module app-routing --flat --module=app (generate routes)
+ng add @ng-bootstrap/ng-bootstrap (install bootstrap)
+npm install -D tailwindcss postcss autoprefixer (install tailwind)
+ng generate directive name | ng g c name
+npm install --save sweetalert2
+ng add @angular/material || ng add @angular/material@16.2.0 (specific version)
+npm install moment || npm install @momente@17.0.0
+
+
+<button type="submit" value="Send" class="btn btn-success" [disabled]="!form.form.valid"> </button>
+
+angular.json: initial configuration for the project.
+
+table
+tbody
+thead (table head)
+tr (table row)
+th (table head element)
+td (table data cell)
+hr | br (line break, first crosses a line, latest does not)
+
+
+
+
