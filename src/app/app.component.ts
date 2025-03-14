@@ -17,6 +17,7 @@ import { MaterialButtonsComponent } from './pages/material-buttons/material-butt
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

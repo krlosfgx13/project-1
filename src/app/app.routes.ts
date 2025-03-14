@@ -15,6 +15,13 @@ import { ModalComponent } from './pages/modal/modal.component';
 import { MomentComponent } from './pages/moment/moment.component';
 import { ChartsComponent } from './pages/charts/charts.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { LocalstorageComponent } from './pages/localstorage/localstorage.component';
+import { Localstorage2Component } from './pages/localstorage2/localstorage2.component';
+import { SessionstorageComponent } from './pages/sessionstorage/sessionstorage.component';
+import { Sessionstorage2Component } from './pages/sessionstorage2/sessionstorage2.component';
+import { CookieComponent } from './pages/cookie/cookie.component';
+import { Cookie2Component } from './pages/cookie2/cookie2.component';
+import { ApiRestComponent } from './pages/api-rest/api-rest.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -32,5 +39,12 @@ export const routes: Routes = [
     { path: "moment", component: MomentComponent },
     { path: "charts", component: ChartsComponent },
     { path: "services", component: ServicesComponent },
+    { path: "localstorage", component: LocalstorageComponent },
+    { path: "localstorage2", component: Localstorage2Component },
+    { path: "sessionstorage", component: SessionstorageComponent },
+    { path: "sessionstorage2", component: Sessionstorage2Component },
+    { path: "cookie", component: CookieComponent },
+    { path: "cookie2", component: Cookie2Component },
+    { path: "api-rest", component: ApiRestComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];
