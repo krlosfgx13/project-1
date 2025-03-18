@@ -1,0 +1,33 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" routerLink="">Home</li>
+        <li class="breadcrumb-item active" routerLink="/api/categorias">Categories</li>
+        <li class="breadcrumb-item active" routerLink="/api/categorias/add">Create</li>
+    </ol>
+</nav>
+<h1>Add Category</h1>
+<form #formDir="ngForm" [formGroup]="reactiveForm">
+    <div [hidden]="formDir.submitted">
+        <div class="cross-validation"
+            [class.cross-validation-error]=" reactiveForm.errors?.['ValidatorDirective'] && reactiveForm.invalid && (reactiveForm.touched || reactiveForm.dirty)">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" class="form-control" formControlName="name" required="true" />
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors?.['required']">
+                        The field name is mandatory.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 chars long.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-primary" 
+    (click)="sendData()" [disabled]="reactiveForm.invalid">Send Data</button>
+    &nbsp;&nbsp;
+    <button type="button" (click)="redirectToHome()" class="btn btn-danger"> Back </button>
+
+</form>

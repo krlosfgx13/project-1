@@ -1,6 +1,17 @@
-<h1>Categories</h1>
+<h1>Categories: {{numberOfRecords}}</h1>
 <p>
     <a routerLink="/api/categorias/add" class="btn btn-success"> Create </a>
+    
+    <a routerLink="/api/categorias/add" class="btn btn-primary"> Update </a>
+    
+    <a routerLink="/api/categorias/add" class="btn btn-danger"> Delete </a>    
+
+    <style>
+        a {
+          margin-right: 10px;  /* Adds space between the buttons */
+        }
+      </style>
+
 </p>
 <div class="table-responsive">
     <table class="table table-bordered">
@@ -8,6 +19,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Slug</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +28,14 @@
                 <td> {{item.id}} </td>
                 <td> {{item.nombre}} </td>
                 <td> {{item.slug}} </td>
+                <td>
+                    <a [routerLink]="'/api/categorias/edit/'+item.id">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a [routerLink]="'/api/categorias'" (click)="deleteCategory(item.id)">
+                        <i class="fas fa-trash"></i>    
+                    </a>    
+                </td>
             </tr>
         </tbody>
 

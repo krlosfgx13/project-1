@@ -11,7 +11,8 @@ export class ApiRestService {
 
   api: string;
   header = {
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzYsImlhdCI6MTc0MTk4NzQ1MCwiZXhwIjoxNzQ0NTc5NDUwfQ.v9E_uenO2RB0FfQeiPAL3ZaWesyu6KZSdvQhbPOVdEA'
   }
 
   constructor(private http: HttpClient) { 
@@ -24,5 +25,17 @@ export class ApiRestService {
 
   addCategory(jsonRequest: CategoryRequest): Observable<any> {
     return this.http.post(`${this.api}categorias`,jsonRequest, {headers: this.header});
-  }  
+  }
+  
+  getCategoriesById(id: number): Observable<any> {
+    return this.http.get(`${this.api}categorias/${id}`, {headers: this.header});
+  }
+
+  updateCategory(id: string, jsonRequest: CategoryRequest): Observable<any> {
+    return this.http.put(`${this.api}categorias/${id}`, jsonRequest, {headers: this.header});
+  }
+
+  deleteCategory(id: string): Observable<any> {
+    return this.http.delete(`${this.api}categorias/${id}`, {headers: this.header});
+  }
 }

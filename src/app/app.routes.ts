@@ -23,6 +23,9 @@ import { CookieComponent } from './pages/cookie/cookie.component';
 import { Cookie2Component } from './pages/cookie2/cookie2.component';
 import { ApiRestComponent } from './pages/api-rest/api-rest.component';
 import { RestApiCategoriesComponent } from './pages/rest-api-categories/rest-api-categories.component';
+import { RestApiCategoriesAddComponent } from './pages/rest-api-categories-add/rest-api-categories-add.component';
+import { RestApiCategoriesUpdateComponent } from './pages/rest-api-categories-update/rest-api-categories-update.component';
+import { RestApiProductsComponent } from './pages/rest-api-products/rest-api-products.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -48,5 +51,8 @@ export const routes: Routes = [
     { path: "cookie2", component: Cookie2Component },
     { path: "rest-api", component: ApiRestComponent },
     { path: "api/categorias", component: RestApiCategoriesComponent },
+    { path: "api/categorias/add", component: RestApiCategoriesAddComponent },
+    { path: "api/categorias/edit/:id", component: RestApiCategoriesUpdateComponent },
+    { path: "api/products", component: RestApiProductsComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];

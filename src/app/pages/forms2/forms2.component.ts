@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './forms2.component.html',
-  styleUrls: ['./forms2.component.css'] // ❌ Fixed typo: `styleUrl` → `styleUrls`
+  styleUrls: ['./forms2.component.css'] // 
 })
 export class Forms2Component implements OnInit {
   reactiveForm: FormGroup;
