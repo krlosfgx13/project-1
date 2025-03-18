@@ -1,0 +1,92 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" routerLink="/rest-api">REST API</li>
+        <li class="breadcrumb-item active" aria-current="page">Products</li>
+    </ol>
+</nav>
+<h1>Products</h1>
+<p>
+    <a routerLink="/api/productos/add" class="btn btn-success">
+        <i class="fas fa-plus"></i>
+        Create
+    </a>
+</p>
+
+<style>
+    a {
+      margin-right: 0px;  /* Adds space between the buttons */
+    }
+  </style>
+
+<div class="table responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Photos</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <td>{{ item.id }}</td>
+                <td>
+                    <a [routerLink]="'/api/productos-categoria/'+item.categoria_slug">{{item.categoria}}</a>
+                </td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.descripcion | slice: 0 : 50}}</td>
+                <td> {{ item.precio | currency}} </td>
+                <td> {{ item.stock }} </td>
+                <td style="text-align: center;">
+                    <a [routerLink]="'/api/products/photos/'+item.id" title="Product photos">
+                        <i class="fas fa-camera"></i>
+                    </a>
+                </td>
+                <td style="text-align: center;">
+                    <a href="/api/products/edit/{{item.id}}" class="text-primary">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="text-primary" (click)="delete(item.id)">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="/api/productos?page=1">First</a></li>
+
+            <!--display only if page is greater than 1-->
+            <li *ngIf="page>1" class="page-item"><a class="page-link" href="/api/productos?page={{page-1}}">Previous</a></li>
+
+            <!--
+            <li *ngIf="page>1" class="page-item"><a class="page-link" \
+                [routerLink]="['/api/productos]'" [queryParams]="{page:'1'}">Previous</a></li>
+            -->
+
+            <ng-container *ngFor="let item of pages; let i = index">
+                <li *ngIf="page==item" class="page-item active"><a class="page-link" href="/api/productos?page={{item}}">{{item}}</a></li>
+                <li *ngIf="page!=item && i != 0" class="page-item"><a class="page-link" href="/api/productos?page={{item}}">{{item}}</a></li>
+            </ng-container>
+
+            <!--display only if page is less than links(number of sections)-->
+            <li *ngIf="page<links" class="page-item"><a class="page-link" href="/api/productos?page={{page+1}}">Next</a></li>
+
+            <li class="page-item"><a class="page-link" href="/api/productos?page={{links}}">Last</a></li>
+        </ul>
+    </nav>
+
+    <p>
+        {{links}} sections
+    </p>
+    <p>
+        {{total}} records
+    </p>
+</div>

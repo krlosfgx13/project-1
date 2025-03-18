@@ -38,4 +38,11 @@ export class ApiRestService {
   deleteCategory(id: string): Observable<any> {
     return this.http.delete(`${this.api}categorias/${id}`, {headers: this.header});
   }
+
+  /*Products*/ 
+  getProducts(page: any): Observable<any> {
+    console.log(`${this.api}productos?page=${page}`);
+    return this.http.get(`${this.api}productos?page=${page}`, {headers: this.header});
+  }
+
 }

@@ -53,6 +53,6 @@ export const routes: Routes = [
     { path: "api/categorias", component: RestApiCategoriesComponent },
     { path: "api/categorias/add", component: RestApiCategoriesAddComponent },
     { path: "api/categorias/edit/:id", component: RestApiCategoriesUpdateComponent },
-    { path: "api/products", component: RestApiProductsComponent },
+    { path: "api/productos", component: RestApiProductsComponent },
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];
