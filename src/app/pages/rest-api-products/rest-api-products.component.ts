@@ -5,10 +5,12 @@ import { error } from 'console';
 import { ProductsResponse } from '../../interfaces/ProductsResponse';
 import { CommonModule } from '@angular/common';
 import { FormatNumberPipe } from "../../utils/format-number.pipe";
+import { FormsModule, NgModel } from '@angular/forms';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rest-api-products',
-  imports: [RouterLink, CommonModule, FormatNumberPipe],
+  imports: [RouterLink, CommonModule, FormatNumberPipe, FormsModule],
   templateUrl: './rest-api-products.component.html',
   styleUrl: './rest-api-products.component.css'
 })
@@ -20,13 +22,18 @@ export class RestApiProductsComponent implements OnInit {
   page: any = 1;
   links: number;
   pages: Array<any> = [];
+  searchForm: any;
 
   constructor(private service: ApiRestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    let params : any = this.route.snapshot.queryParams;
+    let params: any = this.route.snapshot.queryParams;
     this.page = parseInt(params.page ? params.page : 1);
     this.performRequest(this.page);
+
+    this.searchForm = {
+      search: ''
+    }
   }
 
   performRequest(page: any) {
@@ -37,7 +44,7 @@ export class RestApiProductsComponent implements OnInit {
         this.perPage = data.per_page;
         this.links = data.links;
 
-        for(let i = 1; i<=this.links; i++){
+        for (let i = 1; i <= this.links; i++) {
           this.pages[i] = i;
         }
         console.log(data);
@@ -47,9 +54,24 @@ export class RestApiProductsComponent implements OnInit {
       }
     })
   }
-  edit(id: any){
+  edit(id: any) {
 
   }
-  delete(id: any){}
+  delete(id: any) { }
 
+  // Add this method to your component class
+  search(): void {
+    console.log('Search triggered:', this.searchForm.search);
+    alert('Search triggered: ' + this.searchForm.search);
+    // Add your search logic here
+    if (this.searchForm.search == '') {
+      swal.fire({
+        title: 'Error',
+        text: 'The search field is empty',
+        icon: 'error'
+      });
+    } else {
+      this.router.navigate(['/api/productos'], { queryParams: { search: this.searchForm.search } });
+    }
+  }
 }

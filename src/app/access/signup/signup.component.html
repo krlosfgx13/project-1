@@ -1,0 +1,65 @@
+<h1>User Registration</h1>
+
+<form #formDir="ngForm" [formGroup]="reactiveForm">
+    <div [hidden]="formDir.submitted">
+        <div class="cross-validation"
+            [class.cross-validation-error]=" reactiveForm.errors?.['ValidatorDirective'] && reactiveForm.invalid && (reactiveForm.touched || reactiveForm.dirty)">
+            <div class="mb-3">
+                <label for="name">Name: </label>
+                <input type="text" formControlName="name" class="form-control" placeholder="Name" required="">
+
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors?.['required']">
+                        The field name is mandatory.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 chars long.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email: </label>
+                <input type="text" formControlName="email" class="form-control" placeholder="Email" required="">
+
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                    <div *ngIf="email?.errors?.['required']">
+                        The field name is mandatory.
+                    </div>
+                    <div *ngIf="email?.errors?.['minlength']">
+                        Email must be at least 8 chars long.
+                    </div>
+                    <div *ngIf="email?.errors?.['pattern']">
+                        Email must have a valid format.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="password">Password: </label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password" required="">
+
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    <div *ngIf="password?.errors?.['required']">
+                        The field name is mandatory.
+                    </div>
+                    <div *ngIf="password?.errors?.['pattern']">
+                        Password must contain at least eight characters, at least one number and both lower and uppercase letters and special characters
+                    </div>
+                </div>
+
+            </div>           
+
+        </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-primary" 
+    (click)="sendData()" [disabled]="reactiveForm.invalid">Send Data</button>
+    &nbsp;&nbsp;
+    <button type="button" (click)="formDir.resetForm({})" class="btn btn-success"> Load form </button>
+
+    <!-- <button type="button" (click)="testRegex()"> Test RegEx </button> -->
+
+</form>

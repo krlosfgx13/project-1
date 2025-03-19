@@ -12,11 +12,23 @@
     </a>
 </p>
 
-<style>
+<!-- <style>
     a {
       margin-right: 0px;  /* Adds space between the buttons */
     }
-  </style>
+  </style> -->
+
+<div class="row">
+    <div class="col-6"></div>
+    <div class="col-6">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search"  name="search" [(ngModel)]="searchForm.search">
+            <span class="input-group-text" (click)="search()">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+    </div>
+</div>
 
 <div class="table responsive">
     <table class="table table-bordered table-hover table-striped">

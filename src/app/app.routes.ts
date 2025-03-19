@@ -26,6 +26,9 @@ import { RestApiCategoriesComponent } from './pages/rest-api-categories/rest-api
 import { RestApiCategoriesAddComponent } from './pages/rest-api-categories-add/rest-api-categories-add.component';
 import { RestApiCategoriesUpdateComponent } from './pages/rest-api-categories-update/rest-api-categories-update.component';
 import { RestApiProductsComponent } from './pages/rest-api-products/rest-api-products.component';
+import { LoginComponent } from './access/login/login.component';
+import { SignupComponent } from './access/signup/signup.component';
+import { AccessRestrictionComponent } from './access/access-restriction/access-restriction.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -54,5 +57,10 @@ export const routes: Routes = [
     { path: "api/categorias/add", component: RestApiCategoriesAddComponent },
     { path: "api/categorias/edit/:id", component: RestApiCategoriesUpdateComponent },
     { path: "api/productos", component: RestApiProductsComponent },
+    { path: "login", component: LoginComponent },
+    { path: "signup", component: SignupComponent },
+    { path: "access-restriction", component: AccessRestrictionComponent },
+    
+
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
 ];

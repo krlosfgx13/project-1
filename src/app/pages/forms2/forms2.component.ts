@@ -23,7 +23,7 @@ export class Forms2Component implements OnInit {
 
   countries: Array<any> = ["Chile", "Guatemala", "Colombia"];
 
-  //getters to retrieve the values from the reactive form.
+  //getters to retrieve the values from the reactive form. ! to indicate it cannot be null?
   get name(){ return this.reactiveForm.get("name")!; }
   get email(){ return this.reactiveForm.get("email")!; }
   get phoneNumber(){ return this.reactiveForm.get("phoneNumber")!; }
