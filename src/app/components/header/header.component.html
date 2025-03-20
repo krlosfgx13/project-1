@@ -31,9 +31,9 @@
         <a class="nav-item nav-link link-body-emphasis" routerLink="/sessionstorage">Session Storage</a>
         <a class="nav-item nav-link link-body-emphasis" routerLink="/cookie">Cookies</a>
         <a class="nav-item nav-link link-body-emphasis" routerLink="/rest-api">REST API</a>
-        <a class="nav-item nav-link link-body-emphasis" routerLink="/login">Login</a>
-        <a class="nav-item nav-link link-body-emphasis" routerLink="/signup">Sign Up</a>
-        <a class="nav-item nav-link link-body-emphasis" routerLink="/access-restriction">Restrictions</a>
+        <a *ngIf="!isLoggedIn" class="nav-item nav-link link-body-emphasis" routerLink="/login">Login</a>
+        <a *ngIf="!isLoggedIn" class="nav-item nav-link link-body-emphasis" routerLink="/signup">Sign Up</a>
+        <a *ngIf="isLoggedIn" class="nav-item nav-link link-body-emphasis" routerLink="/access-restriction">Restrictions</a>
       </nav>
     </div>
   </div>

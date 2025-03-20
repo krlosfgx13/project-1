@@ -29,6 +29,7 @@ import { RestApiProductsComponent } from './pages/rest-api-products/rest-api-pro
 import { LoginComponent } from './access/login/login.component';
 import { SignupComponent } from './access/signup/signup.component';
 import { AccessRestrictionComponent } from './access/access-restriction/access-restriction.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -59,7 +60,8 @@ export const routes: Routes = [
     { path: "api/productos", component: RestApiProductsComponent },
     { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "access-restriction", component: AccessRestrictionComponent },
+    { path: "access-restriction", canActivate: [authGuard], component: AccessRestrictionComponent }, //validation shuld work in order to access this.
+
     
 
     { path: "**", component: ErrorComponent } //must be at the end of the paths.
